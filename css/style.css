@@ -1,0 +1,38 @@
+ body{
+     background-color:#5d257c;
+ }
+
+ .log{
+    top: 17px;
+ }
+
+ .navbar {
+ 
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.bgs{
+    background-image: url('../img/Photo.png');
+    height: 890px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.captio{
+    position: relative;
+    background-color: #5d257c;
+    height: 442px;
+    width: 450px;
+    right: -59%;
+    border-radius: 7px;
+    max-width: 100%;
+}
+
+@media (max-width:790px){
+ 
+.captio {
+    right: auto;
+}
+}

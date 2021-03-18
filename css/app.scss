@@ -1,0 +1,91 @@
+@use '../css/color';
+
+$color: red;
+$pror:32px;
+$rounded-corners:false;
+
+@mixin btn($bg) {
+    border: none;
+    outline: none;
+    padding: 7px;
+    background-color: $bg;
+}
+
+%card{
+    width: 250px;
+    height: 150px;
+    box-shadow: 7px 7px 8px #000000;
+}
+
+.card1{
+    @extend %card
+}
+
+.box{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .col-6{
+        width: 50%;
+        color: color.$red;
+        font-size: $pror;
+        padding: 7px{
+            left:40px;
+            top: 7px
+        };
+        margin:5px {
+        top: 45px;
+        }
+
+        background: {
+            image:url('');
+            size:cover;
+            color:$color
+        };
+
+        &:hover p{
+            font-size: 45px;
+        }
+
+        &:first-child p {
+            font-weight: bold;
+        }
+
+ 
+
+    }
+
+}
+
+.btn{
+    @include btn(#af3030);
+
+    border-radius: if($rounded-corners, 5px, null);
+}
+
+@mixin prefix($property, $value, $prefixes) {
+    @each $prefix in $prefixes {
+      -#{$prefix}-#{$property}: $value;
+    }
+    #{$property}: $value;
+  }
+  
+  .gray {
+    @include prefix(filter, grayscale(50%), moz webkit);
+  }
+
+  @function pow($base, $exponent) {
+    $result: 1;
+    @for $_ from 1 through $exponent {
+      $result: $result * $base;
+    }
+    @return $result;
+  }
+
+
+  .sidebar {
+    float: left;
+    margin-left: pow(4, 3) * 1px;
+  }

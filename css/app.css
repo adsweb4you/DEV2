@@ -1,0 +1,51 @@
+.card1 {
+  width: 250px;
+  height: 150px;
+  box-shadow: 7px 7px 8px #000000;
+}
+
+.box {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box .col-6 {
+  width: 50%;
+  color: red;
+  font-size: 32px;
+  padding: 7px;
+  padding-left: 40px;
+  padding-top: 7px;
+  margin: 5px;
+  margin-top: 45px;
+  background-image: url("");
+  background-size: cover;
+  background-color: red;
+}
+.box .col-6:hover p {
+  font-size: 45px;
+}
+.box .col-6:first-child p {
+  font-weight: bold;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 7px;
+  background-color: #af3030;
+}
+
+.gray {
+  -moz-filter: grayscale(50%);
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
+}
+
+.sidebar {
+  float: left;
+  margin-left: 64px;
+}
+
+/*# sourceMappingURL=app.css.map */
