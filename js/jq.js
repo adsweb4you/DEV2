@@ -93,3 +93,102 @@ var pare = $(".name").parents();
 var sibl = $('p').not('.cont')
 
 console.log(sibl);
+
+
+$(".tabs li").click(function (e) { 
+  e.preventDefault();
+  $(".tabs").find(".active").removeClass("active");
+  $(this).addClass("active");
+});
+
+
+$(".nav-link").click(function (e) { 
+  e.preventDefault();
+  var page = $(this).attr('href');
+
+  $("#load").load('resp.html')
+
+  // $.ajax(
+  //   {
+  //     type:"GET",
+  //     url: page,
+  //     success: function (resp) {
+  //      $("#load").html(resp)
+  //     },
+  //     error:function (resp) {
+  //       alert("სისტემური  შეცდომა!")
+  //     }
+  //   }
+  // )
+ 
+
+});
+
+
+ 
+
+$(".contact").submit(function (e) { 
+  e.preventDefault();
+ var date =   $(this).serialize();
+
+$.ajax({
+  type: "get",
+  url: "slider.html",
+  data: date,
+ 
+  success: function (response) {
+     $(".contact").addClass("succes")
+  }
+});
+});
+
+
+
+// const langs = localStorage.getItem("lang");
+
+// var lang  = function lang(lang) {
+//    if(lang == "ka"){
+//      return {
+//        home:"მთავარი",
+//        about:"ჩვენ შესახებ",
+//        contact:"კონტაქტი"
+//      }
+//    }
+
+//    if(lang == "en"){
+//     return {
+//       home:"Home",
+//       about:"About Us",
+//       contact:"Contact"
+//     }
+//   }
+
+// }
+
+// $(".lang a").click(function (e) { 
+//   e.preventDefault();
+//   var leng = $(this).data('lang');
+//   localStorage.setItem("lang", leng);
+
+
+//   setlang(leng);
+
+// });
+
+
+// function setlang(langs) {
+//   $("#home").text(lang(langs).home);
+//   $("#about").text(lang(langs).about);
+//   $("#contact").text(lang(langs).home);
+// }
+
+// $(document).ready(function () {
+//   setlang(langs);
+// });
+
+// localStorage.clear();
+
+//sessionStorage.setItem("sdsa", "sadas")
+
+localStorage.setItem("name", 45);
+console.log(localStorage.getItem("name"))
