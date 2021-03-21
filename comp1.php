@@ -36,7 +36,6 @@ $delycheck = $carts->where('vauch_type', 2)->count();
              <img src="{{asset('icons/remove.svg')}}" alt="">
          </button>
          <div class="scroll-box pr-12px pr-md-24px">
-
          @foreach($carts as $cart)
 
          @php
@@ -44,7 +43,8 @@ $delycheck = $carts->where('vauch_type', 2)->count();
  
           @endphp
           
-    <div class="cart-item d-flex justify-content-between">
+   
+             <div class="cart-item d-flex justify-content-between">
                  <div class="cart-product d-flex align-items-center">
                      <div class="cart-checkbox mr-md-16px">
                          <div class="custom-control custom-checkbox ">
@@ -53,45 +53,46 @@ $delycheck = $carts->where('vauch_type', 2)->count();
                              <label class="custom-control-label" for="id-1{{$cart->id}}"></label>
                          </div>
                      </div>
-                   <div class="cart-img mr-30px" onclick="window.location.href='{{url('detals/'.$cart->product->id)}}'"><img src="{{url('img/'.$cart->product->poster)}}"
-                           alt=""></div>
-                   <div class="cart-pr-info" onclick="window.location.href='{{url('detals/'.$cart->product->id)}}'">
-                       <div class="product-info">
-                           <div class="pr-prices d-flex align-items-center">
-                               <div class="price font-size-18 font-size-md-30 font-bold text-primary-title mr-12px"> 
-                                 {{$cart->product->price}} ₾
-                               </div>
-                                <div class="old-price font-size-23 font-base text-light-gray">  @if($cart->product->sale)   {{$cart->product->oldprice}} ₾ @endif
-                               </div>
-                           </div>
-                           <div class="pr-name font-base font-size-18 font-size-md-20 line-height-16 text-primary-title">
-                             {{$cart->product->name}}</div>
-                           <div class="pr-decr clamp _1 font-size-14 font-base text-light-text">{{$cart->product->note}}</div>
-                           <p class="text-main-color">{{ $cart->vauch_type == 1 ? "ვაუჩერი" : "ვაუჩერი + პროდუქტი" }}</p>
-                       </div>
-                   </div>
-               </div>
-               <div class="cart-actions d-flex align-items-center">
-                   <div class="pr-qnt-box mr-16px">
-                       <div class="w-100 d-flex align-items-center justify-content-between rangs"   data-id="{{$cart->product->id}}" data-vauch="{{$cart->vauch_type}}">
-                           <span  data-type="0" data-prods="{{$cart->product->id}}" class="mencarts minus_ cursor-p ">
-                               <img src="{{asset('icons/minus.svg')}}" alt="">
-                           </span>
-                           <div class="">
-                               <input class="font-size-20 innc{{$cart->product->id}} noinc font-bold qnt-input text-center bg-transparent"
-                                   type="text"   value="{{$cart->count}}" min="50" max="500" />
-                           </div>
-                           <span class="mencarts plus_ cursor-p " data-prods="{{$cart->product->id}}"  data-type="1" >
-                               <img src="{{asset('icons/plus.svg')}}" alt="">
-                           </span>
-                       </div>
+                     <div class="cart-img mr-30px" onclick="window.location.href='{{url('detals/'.$cart->product->id)}}'"><img src="{{url('img/'.$cart->product->poster)}}"
+                             alt=""></div>
+                     <div class="cart-pr-info" onclick="window.location.href='{{url('detals/'.$cart->product->id)}}'">
+                         <div class="product-info">
+                             <div class="pr-prices d-flex align-items-center">
+                                 <div class="price font-size-18 font-size-md-30 font-bold text-primary-title mr-12px"> 
+                                   {{$cart->product->price}} ₾
+                                 </div>
+                                  <div class="old-price font-size-23 font-base text-light-gray">  @if($cart->product->sale)   {{$cart->product->oldprice}} ₾ @endif
+                                 </div>
+                             </div>
+                             <div class="pr-name font-base font-size-18 font-size-md-20 line-height-16 text-primary-title">
+                               {{$cart->product->name}}</div>
+                             <div class="pr-decr clamp _1 font-size-14 font-base text-light-text">{{$cart->product->note}}</div>
+                             <p class="text-main-color">{{ $cart->vauch_type == 1 ? "ვაუჩერი" : "ვაუჩერი + პროდუქტი" }}</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="cart-actions d-flex align-items-center">
+                     <div class="pr-qnt-box mr-16px">
+                         <div class="w-100 d-flex align-items-center justify-content-between rangs"   data-id="{{$cart->product->id}}" data-vauch="{{$cart->vauch_type}}">
+                             <span  data-type="0" data-prods="{{$cart->product->id}}" class="mencarts minus_ cursor-p ">
+                                 <img src="{{asset('icons/minus.svg')}}" alt="">
+                             </span>
+                             <div class="">
+                                 <input class="font-size-20 innc{{$cart->product->id}} noinc font-bold qnt-input text-center bg-transparent"
+                                     type="text"   value="{{$cart->count}}" min="50" max="500" />
+                             </div>
+                             <span class="mencarts plus_ cursor-p " data-prods="{{$cart->product->id}}"  data-type="1" >
+                                 <img src="{{asset('icons/plus.svg')}}" alt="">
+                             </span>
+                         </div>
 
-                   </div>
-                   <button data-id="{{$cart->id}}" class="btn  btn-removecart remove-cart p-0">
-                       <img src="{{asset('icons/remove.svg')}}" alt="">
-                   </button>
-               </div>
-           </div>
+                     </div>
+                     <button data-id="{{$cart->id}}" class="btn  btn-removecart remove-cart p-0">
+                         <img src="{{asset('icons/remove.svg')}}" alt="">
+                     </button>
+                 </div>
+             </div>
+   
            @php  
            $pric += $cart->product->price;
            $oldpric += $cart->product->oldprice;
@@ -102,7 +103,7 @@ $delycheck = $carts->where('vauch_type', 2)->count();
            @endif
 
            @endforeach
-
+         </div>
        </div>
        @php $proc = ($pric/$oldpric)*100; 
        
@@ -127,7 +128,7 @@ $delycheck = $carts->where('vauch_type', 2)->count();
                <small class="d-block text-main-color">{{ $cart->vauch_type == 1 ? "ვაუჩერი" : "ვაუჩერი + პროდუქტი" }}</small>
                </div>
                <div class="line"></div>
-               <div class="font-size-16 ubuntu-regular text-light-text">{{$cart->cost}}</div>
+               <div class="font-size-16 ubuntu-regular text-primary-title">{{$cart->cost}}</div>
                
            </div>
            @endforeach
@@ -136,9 +137,9 @@ $delycheck = $carts->where('vauch_type', 2)->count();
             <div class="vouchers-box  mb-17px">
                          <select class="vouchers-select pull-leftt" name="delys">
                              <option value="" class="pull-left"  selected>აირჩიეთ მიწოდების ფორმა ~</option>
-                             <option value="8" class="pull-left">თბილისი სწრაფი მიწოდება 24 საათში ~₾ 8</option>
-                             <option value="5" class="pull-left">თბილისი  მიწოდება 2-5 სამუშაო დღე ~₾ 5</option> 
-                             <option value="10" class="pull-left">რეგიონებში 5-7 სამუშაო ~₾ 10</option>
+                             <option value="8" class="pull-left">თბილისი სწრაფი მიწოდება 24 საათში ~8₾</option>
+                             <option value="5" class="pull-left">თბილისი  მიწოდება 2-5 სამუშაო დღე ~5₾</option> 
+                             <option value="10" class="pull-left">რეგიონებში 5-7 სამუშაო ~10₾</option>
                              <!-- <option value="7" class="pull-left">ობიექტიდან გატანა ~₾0.0</option> -->
                          </select>
              </div>
